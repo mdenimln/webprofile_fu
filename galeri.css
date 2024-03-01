@@ -1,0 +1,438 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  color: inherit;
+}
+body{
+  background-color: var(--pIjo);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+:root{
+  --ijo: #00B8A9;
+  --pIjo: #F9F9F9;
+  --black: #06283D;
+}
+
+/* Bagian Navabar versi laptop */
+nav{
+  background-color: var(--pIjo);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+nav ul{
+  z-index: 1;
+  display: flex;
+  width: 70%;
+  justify-content: space-between; 
+}
+nav ul li{
+  padding: 10px 7px 20px 7px;
+}
+nav ul li a{
+  color: var(--ijo);
+  padding: 7px 10px;
+  font-size: 0.8em;
+}
+nav ul li:hover a {
+  color: var(--pIjo);
+  background-color: var(--ijo);
+  border-radius: 3px;
+}
+.logo {
+  transition: all 1s;
+  z-index: 1;
+}
+.logo img{
+  width: 200px;
+  z-index: 1;
+}
+@media screen and (max-width: 1500px){
+  nav ul{
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1050px){
+  nav ul {
+    width: 70%;
+  }
+}
+@media screen and (max-width:810px){
+  nav ul{
+    width: 75%;
+  }
+  nav ul li{
+     padding: 10px 4px 20px 4px;
+  }
+}
+
+/* style menu toggle */
+.bar{
+  float: right;
+  display: none;
+  flex-direction: column;
+  height: 22px;
+  justify-content: space-between;
+  position: relative;
+  margin: 29px;
+  z-index: 1;
+}
+.bar input{
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -6px;
+  top: -3px;
+  opacity: 0;
+  z-index: 2;
+}
+.bar span{
+  background-color: var(--black);
+  display: block;
+  width: 28px;
+  height: 3px; 
+  border-radius: 3px;
+  transition: all 0.6s;
+}
+.bar span:nth-child(2){
+  transform-origin: 0 0;
+}
+.bar span:nth-child(4){
+  transform-origin: 0 100%;
+}
+.bar input:checked ~ span:nth-child(2){
+  transform: rotate(45deg) ;
+}
+.bar input:checked ~ span:nth-child(4){
+  transform: rotate(-45deg) ;
+}
+.bar input:checked ~ span:nth-child(3){
+  transform: scale(0);
+  opacity: 0;
+}
+.bar input:checked ~ nav .logo {
+  transform: rotate(45deg);
+}
+
+/* Menu bar aktif */
+.aktif {
+    border-bottom: 2px solid var(--ijo);
+}
+
+
+/* Bagian header Judul */
+.head{
+  background-color: var(--pIjo);
+  padding: 50px 0;
+}
+
+.textA h1{
+  font-size: 43px;
+  text-align: center;
+}
+.textA h1:before{
+  content: '';
+  animation: animate 10s linear infinite;
+  color: (--black);
+}
+@keyframes animate {
+  0%{
+    content: '.';
+  }
+  3%{
+    content: '..';
+    color: var(--black);
+  }
+  6%{
+    content: '...';
+    color: var(--ijo);
+  }
+  9%{
+    content: 'SE';
+    color: var(--ijo);
+  }
+  12%{
+    content: 'SELA';
+    color: var(--ijo);
+  }
+  15%{
+    content: 'SELAMAT';
+    color: var(--ijo);
+  }
+  18%{
+    content: 'SELAMAT DA';
+    color: var(--ijo);
+  }
+  21%{
+    content: 'SELAMAT DATANG';
+    color: var(--ijo);
+  }
+  25%{
+    content: 'SELAMAT DATANG DI';
+    color: var(--ijo);
+  }
+  80%{
+    content: 'SELAMAT DATANG DI';
+    color: var(--black);
+  }
+  100%{
+    content: 'SELAMAT DATANG DI ';
+    color: var(--black);
+  }
+}
+
+.judul {
+  width: 80%;
+  margin: 0 auto;
+}
+.judul h1 {
+  font-size: 44px;
+  text-align: center;
+  margin: 0 0 15px 0;
+  color: var(--black);
+}
+.judul h1 span{
+  color: var(--ijo);
+}
+
+/* desain garis untuk memperindah */
+.garis{
+  width: 90%;
+  height: 3px;
+  background-color: lightgray;
+  position: relative;
+  margin: 10px auto 50px  auto;
+  display: flex;
+  align-items: center;
+}
+.garis span{
+  width: 50%;
+  height: 3px;
+  background-color: var(--ijo);
+  position: absolute;
+  left: 50%;
+}
+.bola1{
+  position: absolute;
+  width: 13px;
+  height: 25px; /* as the half of the width */
+  background-color: var(--ijo);
+  border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+  border-bottom-left-radius: 110px; /* 100px of height + 10px of border */
+  border-right: 0;
+  z-index: 1;
+  right: 50%;
+}
+.bola2{
+  position: absolute;
+  width: 13px;
+  height: 25px; /* as the half of the width */
+  background-color: lightgray;
+  border-top-right-radius: 110px;  /* 100px of height + 10px of border */
+  border-bottom-right-radius: 110px; /* 100px of height + 10px of border */
+  border-left: 0;
+  z-index: 1;
+  left: 50%;
+}
+  
+  
+/*    Bagian Content     */
+.content{
+  width: 90%;
+  margin: 0 auto;
+  color: var(--ijo);
+  padding-bottom: 100px;
+}
+
+/* hover */
+.on,
+.PV:hover,
+.items .item:hover{
+  background-color: var(--ijo);
+  color: var(--pIjo);
+}
+.content .PotVid{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+.content .PotVid .PV {
+  width: 30%;
+  text-align: center;
+  padding: 10px ;
+  border-radius: 5px;
+  border-bottom: 1px solid var(--ijo);
+  transition: 0.5s;
+}
+.content .items{
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  border-left: 2px solid var(--ijo);
+  padding: 10px 0 10px 10px;
+}
+.content .items .item{
+  border: 1px solid var(--ijo);
+  border-radius: 2px;
+  padding: 10px 15px;
+  flex-shrink: 0;
+  overflow: hidden;
+  transform: scale(1);
+  scroll-snap-align: start;  
+  transform-origin: start start;
+  transition: 0.4s;
+}
+
+.galeri.ada{
+  display: flex;
+}
+.galeri.hilang{
+  display: none;
+}
+.galeri{
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  border-bottom: 2px solid ;
+   gap: 2%;
+  align-items: baseline;
+  align-content: flex-start;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-radius: 3px;
+}
+.galeri .image{
+  width: 49%;
+  margin: 5px 0;
+}
+.galeri .image span {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.galeri .image img{
+  width: 100%;
+  vertical-align: middle;
+  transition: all 0.5s ease;
+}
+.galeri .image:hover img{
+  transform: scale(1.2);
+}
+.galeri .vid{
+  width: 49%;
+  margin: 10px 0;
+}
+.galeri .vid video{
+  width: 100%
+}
+
+
+/**_____ style foto atau vidio dimana foto atau vidio tersebut akan menghilang atau muncuk ketika user mengklik pilihan kategori _____**/
+.galeri .image.hide,
+.galeri .vid.hide{
+  display: none;
+}
+.galeri .image.show,
+.galeri .vid.show{
+  display: block;
+}
+.galeri .image.show,
+.galeri .vid.show{
+  animation: efek 0.5s ease;
+}
+@keyframes efek{
+  0%{
+    transform: scale(0.4);
+    }
+  100%{
+    transform: scale(1);
+  }
+
+}
+
+
+/*_______  BAGIAN FOOTER ______*/
+footer{
+  width: 100%;
+  background-color: var(--ijo);
+}
+.Isosmed{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  color: white;
+  font-size: 25px;
+}
+footer p {
+  text-align: center;
+  color: white;
+  padding-bottom: 20px;
+  color: var(--pIjo);
+}
+footer p span{
+  padding: 2px 5px;
+  border-left: 1px solid var(--pIjo);
+  margin: 0 5px;
+}
+  
+
+
+@media screen and (max-width: 790px){
+    /* Menu navigation */
+  .bar{
+    display: flex;
+  }
+  
+  nav {
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+  }
+  nav ul{
+    position: absolute;
+    right: 2%;
+    top: 0;
+    height: 60vh;
+    width: 96%;
+    background-color: var(--pIjo);
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(-100%);
+    transition: all 0.8s;
+    opacity: 0;
+    font-weight: 600;
+  }
+  
+  nav .logo img{
+    width: 200px;
+    z-index: 1;
+  }
+  
+  /* aktif versi mobile */
+  .aktif{
+    padding: 7px 10px;
+    border-bottom: 2px solid var(--ijo);
+  }
+  
+  /* ClassList Toggle */
+  nav ul.geser{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+
+}
